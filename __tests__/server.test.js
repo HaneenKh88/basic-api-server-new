@@ -2,9 +2,9 @@
 
 'use strict';
 
-const { app } = require('../src/server');
+const { server } = require('../src/server');
 const superTest  = require('supertest');
-const request = superTest(app);
+const request = superTest(server);
 let id;
 
 describe('api server', () => {
@@ -18,7 +18,7 @@ describe('api server', () => {
   });
 
   it('should get all the food on GET /food', async () => {
-		const response = await request.get('/api/v1/food');
+		const response = await request.get('/api/v1/food/');
 		expect(response.status).toEqual(200);
 	});
 
